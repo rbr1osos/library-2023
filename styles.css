@@ -1,0 +1,270 @@
+:root{
+    --main-color:#003DA5;
+    --darker-main: #002A72;
+    --accent-color:#FFB71B;
+    --white:white;
+}
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family: 'Oswald', sans-serif;
+    margin:0;
+    padding:0;
+    background-color: #F5F5F5;
+    width:100vw;
+    height: 100vh;
+    display:flex;
+    flex-direction: column;
+}
+.header{
+    display:flex;
+    padding:32px;
+    background-color: var(--main-color);
+    height:112px;
+    justify-content: space-between;
+}
+
+.logo{
+    padding: 16px 16px 4px 8px;
+    border-right: 2px solid #FFB71B;
+}
+
+.left-side{
+    display:flex;
+    align-self: center;
+}
+.header-title{
+    color:white;
+    font-weight: 700;
+    font-size: 24px;
+    padding: 24px 32px;
+}
+.right-side{
+    display:flex;
+    gap: 24px;
+    align-items:center;
+}
+
+.notification, .setting{
+    height: 24px;
+}
+.profile-name{
+    font-size: 24px;
+    font-weight:normal;
+    color:var(--white)
+}
+.profile-logo{
+    height:40px;
+    padding:8px;
+    background-color: rgb(31, 30, 30);
+    border-radius:50%;
+    box-shadow: 1px 1px 2px rgb(46, 46, 46);
+}
+.setting{
+    width:24px;
+}
+
+
+/* Body */
+.container{
+    display:flex;
+    vertical-align: middle;
+    flex-direction: column;
+    width:80%;
+    height:100%;
+    background-color: var(--white);
+    align-self: center;
+    align-content: center;
+
+}
+
+.banner{
+    position:relative;
+    height: 30%;
+    width:100%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-image: url('images/banner.png');
+}
+
+.banner-title{
+    color:white;
+    font-size: 2.5rem;
+    font-weight:bold;
+    
+    position:absolute;
+    bottom:24px;
+    left:40px;
+
+}
+
+/* Search bars */
+.search-bar{
+    display:flex;
+    gap:16px;
+}
+
+.search{
+    width:100%;
+    background-color: #fcfcfc;
+    border:2px solid #ececec;
+    border-radius:8px;
+    
+    display:flex;
+    align-items:center;
+    padding:8px;
+}
+
+.search-text{
+    font-size:20px;
+    opacity:40%;
+}
+.open-button{
+    padding:8px 16px;
+    width:169px;
+    background-color:var(--accent-color);
+    font-size:20px;
+    font-weight:bolder;
+    color:white;
+    border-radius:8px;
+    border-style:none;
+
+}
+
+.content-container{
+    padding:40px;
+    overflow: scroll;
+ }
+
+ .item-container{
+     display:grid;
+     grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+     padding:40px;
+     justify-content: flex-start;
+ }
+
+ .book{
+     display:flex;
+     flex-direction: column;
+     align-items:center;
+ }
+
+    /********    Pop up    *********/
+
+.pop-up-container{
+    display:none;
+}
+
+.pop-up-background{
+    position:fixed;
+    z-index:1;
+    opacity:80%;
+    width:100%;
+    height:100%;
+    background-color:black;
+}
+
+
+.pop-up-form{ 
+    position:absolute;
+    z-index: 2;
+    transform: translateX(-50%);
+    left:50%;
+    top:10%;
+    background-color:white;
+    width: 640px;
+    height:613px;
+
+    display:grid;
+    grid-template-columns: 1fr 8fr;
+}
+
+.left-side-banner{
+    background-color:var(--darker-main);
+    padding:24px;
+    grid-column: 1/2;
+    width:106px;
+}
+
+.banner-content{
+    display:flex;
+    flex-direction: column;
+}
+
+.pop-up-title{
+    font-size: 48px;
+    font-weight: 800;
+    padding-top: 40px;
+    color:var(--darker-main);
+    text-align: center;
+}
+
+.form-content{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin:32px;
+  justify-items:center;
+}
+
+.title-container,
+.author-container,
+.pages-container{
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  height:100px;
+  font-size:20px;
+}
+
+
+.title-container{
+  grid-column:1/4;
+}
+
+#title,
+#author,
+#pages{
+  height:40px;
+  border-radius:5px;
+  border-style:none;
+  border:2px solid #CBCBCB;
+}
+
+.pages-content{
+    width:130px;
+}
+
+.radio-container p{
+    margin:0;
+    font-size:16px;
+}
+
+.author-container{
+  grid-area:2/1/3/4;
+}
+
+.pages-container{
+  grid-area:3/1/4/4;
+}
+
+.form-container{
+  display:flex;
+  gap:98px;
+}
+
+.submit-button{
+    color:white;
+    font-size:24px;
+    font-weight: bolder;
+    align-self: center;
+    background-color: var(--accent-color);
+    width: 310px;
+    height:64px;
+    border:2px solid #CBCBCB;
+    border-style:none;
+    border-radius: 8px;
+}
