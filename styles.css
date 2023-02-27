@@ -170,7 +170,8 @@ body{
      justify-content: flex-start;
  }
 
- .book{
+ .book,
+ .newBook{
      display:flex;
      flex-direction: column;
      align-items:center;
