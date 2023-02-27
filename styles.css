@@ -20,38 +20,62 @@ body{
 }
 .header{
     display:flex;
-    padding:32px;
+    flex-wrap: wrap;
     background-color: var(--main-color);
-    height:112px;
-    justify-content: space-between;
 }
 
-.logo{
-    padding: 16px 16px 4px 8px;
-    border-right: 2px solid #FFB71B;
+.yellow-border{
+    position:relative;
+    height:60px;
+    width:2px;
+    background-color:var(--accent-color)
+}
+
+.ucr-logo{
+    display:inline-block;
+    background-image: url('images/UC_Riverside_Horiz_BluBG\ 1.png');
+    background-repeat: no-repeat;
+    height:60px;
+    width:200px;
+    align-self: center;
+    margin: 24px;
+
 }
 
 .left-side{
     display:flex;
-    align-self: center;
+    align-items: center;
+    
 }
 .header-title{
     color:white;
-    font-weight: 700;
-    font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1.08;
     padding: 24px 32px;
+    flex-shrink:1;
 }
 .right-side{
     display:flex;
     gap: 24px;
     align-items:center;
+    margin-left:auto;
+    padding:32px
+}
+
+.links{
+    font-size:1rem;
+    font-weight:bold;
+    color:var(--white);
+}
+.link{
+    padding:16px;
 }
 
 .notification, .setting{
     height: 24px;
 }
 .profile-name{
-    font-size: 24px;
+    font-size: 1.125rem;
     font-weight:normal;
     color:var(--white)
 }
