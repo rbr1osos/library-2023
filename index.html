@@ -124,8 +124,40 @@
     </div>
 
     <div class='container'>
-        <div class='filter-box'></div>
-        <div class='completed-box'></div>
+        <div class='filter-box'>
+            <div class='filter-title'>Filter by:</div>
+            <form action='' class='incomingForm' method='post'>
+                <div class='filter'>
+                    <p>
+                        <input type="radio" id='side-title' name='read' value='filter_title'/>
+                        <label for='filter_title'>Title</label>
+                    </p>
+                    <p>
+                        <input type="radio" id='side-author' name='read' value='filter_author'/>
+                        <label for='filter_author'>Author</label>
+                    </p> 
+                    <p>
+                        <input type="radio" id='side-pages' name='read' value='filter_pages'/>
+                        <label for='filter_pages'>Pages</label>
+                    </p> 
+                </div>   
+            </form>
+        </div>
+        <div class='completed-box'>
+            <div class='filter-title'>Completed</div>
+            <form action='' class='incomingForm' method='post'>
+                <div class='filter'>
+                    <p>
+                        <input type="radio" id='side-yes' name='read' value='completed_yes'/>
+                        <label for='completed_yes'>Yes</label>
+                    </p>
+                    <p>
+                        <input type="radio" id='side-no' name='read' value='completed_no'/>
+                        <label for='completed_no'>No</label>
+                    </p>
+                </div>   
+            </form>
+        </div>
         <div class='content-box'>
             <div class='search-bar'>
                 <div class='search'>
