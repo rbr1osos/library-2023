@@ -6,17 +6,21 @@ const author_form = document.getElementById('author');
 const pages_form = document.getElementById('pages');
 const read_form = document.getElementById('read');
 
-
+const black_popup = document.querySelector('.pop-up-background')
 const submit_button = document.querySelector('.submit-button')
 const book_creation =  document.querySelector('.item-container')
 const popup_div = document.querySelector('.pop-up-container')
-
+const book_popup = document.querySelector('.book-pop-up-container')
+const book_div = document.querySelector('.book')
 function openForm() {
   popup_div.style.display = "block";
+
 }
 
 function closeForm() {
   popup_div.style.display = "none";
+  book_popup.style.display = "none";
+
 }
 
 
@@ -40,11 +44,13 @@ function addBookToLibrary(title,author,pages,read){ // form inserted here?
   console.log(myLibrary)
 
 
-    const container = book_creation;
-
+  const container = book_creation;
   const newBook= document.createElement('div');
-  newBook.classList.add('newBook')
+  newBook.classList.add('book')
   container.appendChild(newBook)
+  newBook.addEventListener('click', function(){
+    book_popup.style.display = "block";
+  })
 
   //Add Picture
   const newPicture = document.createElement('img');
@@ -72,6 +78,7 @@ function addBookToLibrary(title,author,pages,read){ // form inserted here?
 
 
 console.log(myLibrary)
+
 submit_button.addEventListener('click',()=>{
 title = title_form.value;
 author = author_form.value;
@@ -80,4 +87,15 @@ read  = read_form.value;
 
 addBookToLibrary(title,author,pages,read)
   event.preventDefault();
+})
+
+//Closes window when background is clicked
+black_popup.addEventListener('click',()=>{
+  closeForm()
+})
+
+
+book_div.addEventListener('click',()=>{
+  book_popup.style.display = "block";
+
 })

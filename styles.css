@@ -7,7 +7,9 @@
 *{
     box-sizing:border-box;
 }
-
+div > .book-pop-up-form{
+    color:var(--white)
+}
 body{
     font-family: 'Oswald', sans-serif;
     margin:0;
@@ -177,9 +179,15 @@ body{
      align-items:center;
  }
 
-    /********    Pop up    *********/
+ .book:hover{
+     opacity:80%;
+ }
 
-.pop-up-container{
+
+    /********    Add Book popup    *********/
+
+.pop-up-container,
+.book-pop-up-form{
     display:none;
 }
 
@@ -191,7 +199,6 @@ body{
     height:100%;
     background-color:black;
 }
-
 
 .pop-up-form{ 
     position:absolute;
@@ -224,9 +231,12 @@ body{
     font-weight: 800;
     padding-top: 40px;
     color:var(--darker-main);
+}
+.author-name, 
+.pop-up-author,
+.pop-up-title{
     text-align: center;
 }
-
 .form-content{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -292,4 +302,78 @@ body{
     border:2px solid #CBCBCB;
     border-style:none;
     border-radius: 8px;
+}
+
+    /********    Display Book popup    *********/
+
+.book-pop-up-form{ 
+    position:absolute;
+    z-index: 2;
+    transform: translateX(-50%);
+    left:50%;
+    top:20%;
+    background-color:white;
+    width: 720px;
+    height:480px;
+
+    display:grid;
+    grid-template-columns: 2fr 3fr;
+}
+.pop-up-author{
+padding-bottom:32px;
+font-size: 24px;
+
+}
+.book-left-side{
+    grid-column:1/2;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-popup-image{
+    width:200px;
+    height:296px;
+}
+.book-right-side{
+    grid-column: 2/3;
+    background-color:#002A72;
+padding:48px;
+
+    display:flex;
+    flex-direction: column;
+
+    align-items:center
+}
+
+.book-right-side .pop-up-title{
+    color:var(--white);
+    padding-top:0;
+}
+
+.pop-up-pages{
+    display:flex;
+    gap: 16px;
+    font-size: 24px;
+}
+
+.pop-up-content{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    justify-items: center;
+    width:300px;
+    gap:16px;
+}
+
+.remove-book{
+    background-color:#BB251A;
+    width:300px;
+    border-radius:8px;
+    color:white;
+    font-size:24px;
+    font-weight:700;
+    border:none;
+    margin-top:64px;
+    height:64px;
 }
