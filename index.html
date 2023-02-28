@@ -13,7 +13,7 @@
 <body>
 
 <div class='book-pop-up-container'>
-    <div class='pop-up-background'></div> <!-- darkens the screen -->
+    <div class='pop-up-background'></div> 
 
     <div class='book-pop-up-form'>
         <div class='book-left-side'>
@@ -44,11 +44,10 @@
 
      <!-- Popup Container -->
 <div class='pop-up-container'>
-    <div class='pop-up-background'> <!-- darkens the screen -->
+    <div class='pop-up-background'> 
     </div>
 
-    <!-- Left banner -->
-    <div class='pop-up-form'> <!-- Content inside -->
+    <div class='pop-up-form'> 
         <div class='left-side-banner'>
             <img src='images/ucr-badge-wht.png'>
         </div> 
@@ -61,20 +60,20 @@
 
                <div class='title-container'>
                  <label for='title'>Title:</label>
-                 <input type='text' id='title' name='title' placeholder='book name..'>
+                 <input type='text' id='title' name='title' placeholder='book name..' minlength='5' maxlength='20' required>
                </div>
                
                <div class='author-container'>
                  <label for='author'>Author:</label>
-                 <input type="name" id='author' name='name' placeholder='author name..'>
+                 <input type="name" id='author' name='name' placeholder='author name..' minlength='5' maxlength='20' required>
                </div>
                
                <div class='pages-container'>
                  
-                 <div class='form-container'>
+                <div class='form-container'>
                    <div class='pages-content'>
                      <label for='pages'>Pages:</label>
-                     <input type="number" id='pages' name='page' step='1' placeholder='how many pages..'>
+                     <input type="number" id='pages' name='page' step='1' placeholder='how many pages..' required>
                    </div>
                    
                    <div class='radio-container'>
@@ -88,25 +87,24 @@
                                 <input type="radio" id='read' name='read' value='Need to Finish'/>
                                 <label for='read_no'>No</label>
                             </p> 
-                        </div>   
+                    </div>   
                  </div>
                  
                </div>
                
              </div>
-             <input type='submit' class='submit-button' value='Submit' onclick='closeForm()'>
-
+             <button type='submit' class='submit-button' onclick='closeForm()'>Submit</button>
             </form>
-            
-
+                         <!-- <input type='submit' class='submit-button' value='Submit' onclick='closeForm()'>   -->
         </div>
         </div>
-    </div>
+    </div> 
 
      <!-- Header -->
+<div class='content-container'>
     <div class='header'>
         <div class='left-side'>
-            <a class='ucr-logo'></a>
+            <img src='images/UC_Riverside_Horiz_BluBG 1.png' class='ucr-logo' height='40px'>
             <div class='yellow-border'></div>
         <div class='header-title'>Personal Library</div>
         </div>
@@ -125,36 +123,38 @@
         </div>
     </div>
 
-
-
-<div class='container'>
-    <div class='banner'>
-        <div class='banner-title'>Your Library</div>
-    </div>
+    <div class='container'>
+        <div class='filter-box'></div>
+        <div class='completed-box'></div>
+        <div class='content-box'>
+            <div class='search-bar'>
+                <div class='search'>
+                    <div class='search-text'>Search text here</div>
+                    <div class='search-icon'></div>
+                </div>
+                <button class='open-button' onclick='openForm()'>+ Add Book</button>
+            </div>
+            <div class='item-container'>
+                <div class='book'>
+                    <img class='book-image' src='images/book.png'> 
+                    <div class='book-title'>Narnia</div>
+                    <div class='book-author'>C.S. Lewis</div>
+                </div>
     
-    <div class='content-container'>
-        <div class='search-bar'>
-            <div class='search'>
-                <div class='search-text'>Search text here</div>
-                <div class='search-icon'></div>
             </div>
-            <button class='open-button' onclick='openForm()'>+ Add Book</button>
         </div>
-
-        <div class='item-container'>
-            <div class='book'>
-                <img class='book-image' src='images/book.png'> 
-                <div class='book-title'>Narnia</div>
-                <div class='book-author'>C.S. Lewis</div>
-            </div>
-
-
-        </div>
-
     </div>
-</div> 
 
-
+    <div class='footer'>
+        <div class='myname'> Created by Ryan Briosos</div>
+        <div class='social-links'>
+            <img class='social-img' src='images/GitHub.png'>
+            <img class='social-img' src='images/Behance.png'>
+            <img class='social-img' src='images/linkedin.png'>
+    
+        </div>
+    </div>
+</div>
 
 <script src='/script.js'></script>
 </body>
