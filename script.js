@@ -134,13 +134,13 @@ function changebutton(){
   read = read_form.value;
 
 console.log(read)
-read_button.classList.toggle('notRead-button')
+// read_button.classList.toggle('notRead-button')
 
- if ((read_button.textContent)==='Read'){
-   read_button.textContent='Not Read'
- }
- else{
-   read_button.textContent='Read'
+//  if ((read_button.textContent)==='Read'){
+//    read_button.textContent='Not Read'
+//  }
+//  else{
+//    read_button.textContent='Read'
 
- }
+//  }
 }
