@@ -25,9 +25,13 @@ function openForm() {
 }
 
 function closeForm() {
+  if(title_form.value==='none'){
+    return false
+  }
+  else{
   popup_div.style.display = "none";
   book_popup.style.display = "none";
-
+  }
 }
 
 
@@ -118,6 +122,11 @@ title = title_form.value;
 author = author_form.value;
 pages = pages_form.value;
 
+if (title_form.value===''|| author_form.value==='' || pages_form.value===''){
+  console.log('title is empty')
+}
+
+else{
 if(read_form.checked){
 read = read_form.value;
 console.log(read)
@@ -129,6 +138,8 @@ else{
   read='not read'
 }
 
+closeForm()
+}
 addBookToLibrary(title,author,pages,read)
   e.preventDefault();
 });

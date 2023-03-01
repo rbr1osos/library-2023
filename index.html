@@ -60,12 +60,12 @@
 
                <div class='title-container'>
                  <label for='title'>Title:</label>
-                 <input type='text' id='title' name='title' placeholder='book name..' minlength='5' maxlength='20' required>
+                 <input type='text' id='title' name='title' placeholder='book name..' pattern='[a-zA-Z0-9-]+' minlength='5' maxlength='20' required>
                </div>
                
                <div class='author-container'>
                  <label for='author'>Author:</label>
-                 <input type="name" id='author' name='name' placeholder='author name..' minlength='5' maxlength='20' required>
+                 <input type="name" id='author' name='name' placeholder='author name..' pattern='^(?! )[A-Za-z\s]*$'minlength='5' maxlength='20' required>
                </div>
                
             <div class='pages-container'>
@@ -82,7 +82,7 @@
             </div>
                
              </div>
-        <button type='submit' class='submit-button' value='Submit' onclick='closeForm()'> Submit</button>
+        <button type='submit' class='submit-button' value='Submit' > Submit</button>
                         </form>
         </div>
         </div>

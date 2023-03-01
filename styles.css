@@ -185,6 +185,7 @@ body{
     padding-top:40px;
     justify-content: flex-start;
     grid-row-gap:40px;
+    grid-column-gap: 40px;
 
 }
 
