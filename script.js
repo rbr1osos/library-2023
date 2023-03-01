@@ -1,6 +1,5 @@
-// read button will toggle, figure a way to do that
-// - change read-button to notRead-button using text override?
-
+//display of read/not read--changes, array doesnt
+//need to find a way to change the actual object property
 
 let myLibrary = [];
 
@@ -9,6 +8,8 @@ const author_form = document.getElementById('author');
 const pages_form = document.getElementById('pages');
 const read_form = document.getElementById('checkboxed');
 
+const read_button =document.querySelector('.read-button')
+const notRead_button =document.querySelector('.notRead-button')
 
 const black_popup = document.querySelector('.pop-up-background')
 const submit_button = document.querySelector('.submit-button')
@@ -30,7 +31,6 @@ function closeForm() {
   }
   else{
   popup_div.style.display = "none";
-  book_popup.style.display = "none";
   }
 }
 
@@ -73,9 +73,7 @@ function addBookToLibrary(title,author,pages,read){ // form inserted here?
   const newBook= document.createElement('div');
   newBook.classList.add('book')
   container.appendChild(newBook)
-  newBook.addEventListener('click', function(){
-    book_popup.style.display = "block";
-  })
+ 
 
   const newTitle= document.createElement('div');
   newTitle.classList.add('book-title')
@@ -89,7 +87,7 @@ function addBookToLibrary(title,author,pages,read){ // form inserted here?
 
   const newPages= document.createElement('p');
   newPages.classList.add('book-pages')
-  newPages.textContent= pages
+  newPages.textContent= pages+' pages'
   newBook.appendChild(newPages)
 
   const button_container = document.createElement('div');
@@ -150,7 +148,21 @@ black_popup.addEventListener('click',()=>{
 })
 
 
-book_div.addEventListener('click',()=>{
-  book_popup.style.display = "block";
-
+read_button.addEventListener('click',()=>{
+  changebutton();
 })
+
+function changebutton(){
+  read = read_form.value;
+
+console.log(read)
+read_button.classList.toggle('notRead-button')
+
+ if ((read_button.textContent)==='Read'){
+   read_button.textContent='Not Read'
+ }
+ else{
+   read_button.textContent='Read'
+
+ }
+}

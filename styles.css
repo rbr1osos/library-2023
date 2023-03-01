@@ -244,9 +244,6 @@ background-color: #039855;
     background-color:#8b1a12;
 
 }
-/* .book:hover{
-    opacity:80%;
-} */
 
 /* --------- footer ---------  */
 
@@ -261,8 +258,7 @@ background-color: #039855;
 
     /********    Add Book popup    *********/
 
-.pop-up-container,
-.book-pop-up-container{
+.pop-up-container{
     display:none;
 }
 
@@ -383,78 +379,4 @@ background-color: #039855;
 .incomingForm{
     display:flex;
     flex-direction: column;
-}
-
-    /********    Display Book popup    *********/
-
-.book-pop-up-form{ 
-    position:absolute;
-    z-index: 2;
-    transform: translateX(-50%);
-    left:50%;
-    top:20%;
-    background-color:white;
-    width: 720px;
-    height:480px;
-
-    display:grid;
-    grid-template-columns: 2fr 3fr;
-}
-.pop-up-author{
-padding-bottom:32px;
-font-size: 24px;
-
-}
-.book-left-side{
-    grid-column:1/2;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.book-popup-image{
-    width:200px;
-    height:296px;
-}
-.book-right-side{
-    grid-column: 2/3;
-    background-color:#002A72;
-padding:48px;
-
-    display:flex;
-    flex-direction: column;
-
-    align-items:center
-}
-
-.book-right-side .pop-up-title{
-    color:var(--white);
-    padding-top:0;
-}
-
-.pop-up-pages{
-    display:flex;
-    gap: 16px;
-    font-size: 24px;
-}
-
-.pop-up-content{
-    display:flex;
-    flex-direction: column;
-    align-content: center;
-    justify-items: center;
-    width:300px;
-    gap:16px;
-}
-
-.remove-book{
-    background-color:#BB251A;
-    width:300px;
-    border-radius:8px;
-    color:white;
-    font-size:24px;
-    font-weight:700;
-    border:none;
-    margin-top:64px;
-    height:64px;
 }
