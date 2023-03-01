@@ -1,10 +1,14 @@
+// read button will toggle, figure a way to do that
+// - change read-button to notRead-button using text override?
+
 
 let myLibrary = [];
 
 const title_form = document.getElementById('title');
 const author_form = document.getElementById('author');
 const pages_form = document.getElementById('pages');
-const read_form = document.getElementById('read');
+const read_form = document.getElementById('checkboxed');
+
 
 const black_popup = document.querySelector('.pop-up-background')
 const submit_button = document.querySelector('.submit-button')
@@ -12,6 +16,9 @@ const book_creation =  document.querySelector('.item-container')
 const popup_div = document.querySelector('.pop-up-container')
 const book_popup = document.querySelector('.book-pop-up-container')
 const book_div = document.querySelector('.book')
+
+// const read_choice = document.querySelector('input[name="picked"]:checked')?.value;
+
 function openForm() {
   popup_div.style.display = "block";
 
@@ -34,15 +41,29 @@ function Book(title,author,pages,read){
     // }
   }
 
-
-function addBookToLibrary(title,author,pages,read){ // form inserted here?
+function addBookToLibrary(){
   Book.prototype  =  Object.create(addBookToLibrary.prototype);
   const book= new Book(title,author,pages,read);
   
   //adds object to library
   myLibrary.push(book)
   console.log(myLibrary)
+  
+  console.log(typeof myLibrary)
 
+  for (let i in myLibrary){
+    console.log('hi')
+  }
+ 
+}
+
+function addBookToLibrary(title,author,pages,read){ // form inserted here?
+
+  Book.prototype  =  Object.create(addBookToLibrary.prototype);
+  const book= new Book(title,author,pages,read);
+  
+  //adds object to library
+  myLibrary.push(book)
 
   const container = book_creation;
   const newBook= document.createElement('div');
@@ -52,42 +73,65 @@ function addBookToLibrary(title,author,pages,read){ // form inserted here?
     book_popup.style.display = "block";
   })
 
-  //Add Picture
-  const newPicture = document.createElement('img');
-  newPicture.classList.add('book-image')
-  newPicture.src= 'images/book.png'
-  newBook.appendChild(newPicture)
-
-
-  //Add title
   const newTitle= document.createElement('div');
-  newTitle.classList.add('newTitle')
+  newTitle.classList.add('book-title')
   newTitle.textContent= title
   newBook.appendChild(newTitle)
 
-  //Add Author
   const newAuthor= document.createElement('div');
   newAuthor.classList.add('newAuthor')
   newAuthor.textContent=  author
   newBook.appendChild(newAuthor)
-  
 
+  const newPages= document.createElement('p');
+  newPages.classList.add('book-pages')
+  newPages.textContent= pages
+  newBook.appendChild(newPages)
+
+  const button_container = document.createElement('div');
+  button_container.classList.add('book-buttons')
+  newBook.appendChild(button_container)
+
+  if (read==='read'){
+    const readButton = document.createElement('button')
+    readButton.classList.add('read-button')
+    readButton.textContent='Read'
+    button_container.appendChild(readButton)
+  }
+  else{
+    const notReadButton = document.createElement('button')
+    notReadButton.classList.add('notRead-button')
+    notReadButton.textContent='Not read'
+    button_container.appendChild(notReadButton)
+  }
+    
+  const removeButton = document.createElement('button')
+  removeButton.classList.add('remove-button')
+  removeButton.textContent='Remove'
+  button_container.appendChild(removeButton)
 }
 
 
 
-
-console.log(myLibrary)
-
-submit_button.addEventListener('click',()=>{
+submit_button.addEventListener('click',(e)=>{
 title = title_form.value;
 author = author_form.value;
 pages = pages_form.value;
-read  = read_form.value;
+
+if(read_form.checked){
+read = read_form.value;
+console.log(read)
+
+}
+
+else{
+  console.log('hi')
+  read='not read'
+}
 
 addBookToLibrary(title,author,pages,read)
-  event.preventDefault();
-})
+  e.preventDefault();
+});
 
 //Closes window when background is clicked
 black_popup.addEventListener('click',()=>{
