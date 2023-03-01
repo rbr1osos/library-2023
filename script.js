@@ -34,113 +34,90 @@ function closeForm() {
   }
 }
 
-
 function Book(title,author,pages,read){
-    this.title=title
-    this.author=author
-    this.pages = pages
-    this.read=read
-    // this.info = function (){
-    //   return myLibrary.push(title,author, pages,read)
-    // }
-  }
-
-function addBookToLibrary(){
-  Book.prototype  =  Object.create(addBookToLibrary.prototype);
-  const book= new Book(title,author,pages,read);
-  
-  //adds object to library
-  myLibrary.push(book)
-  console.log(myLibrary)
-  
-  console.log(typeof myLibrary)
-
-  for (let i in myLibrary){
-    console.log('hi')
-  }
- 
-}
-
-function addBookToLibrary(title,author,pages,read){ // form inserted here?
-
-  Book.prototype  =  Object.create(addBookToLibrary.prototype);
-  const book= new Book(title,author,pages,read);
-  
-  //adds object to library
-  myLibrary.push(book)
-
-  const container = book_creation;
-  const newBook= document.createElement('div');
-  newBook.classList.add('book')
-  container.appendChild(newBook)
- 
-
-  const newTitle= document.createElement('div');
-  newTitle.classList.add('book-title')
-  newTitle.textContent= title
-  newBook.appendChild(newTitle)
-
-  const newAuthor= document.createElement('div');
-  newAuthor.classList.add('newAuthor')
-  newAuthor.textContent=  author
-  newBook.appendChild(newAuthor)
-
-  const newPages= document.createElement('p');
-  newPages.classList.add('book-pages')
-  newPages.textContent= pages+' pages'
-  newBook.appendChild(newPages)
-
-  const button_container = document.createElement('div');
-  button_container.classList.add('book-buttons')
-  newBook.appendChild(button_container)
-
-  if (read==='read'){
-    const readButton = document.createElement('button')
-    readButton.classList.add('read-button')
-    readButton.textContent='Read'
-    button_container.appendChild(readButton)
-  }
-  else{
-    const notReadButton = document.createElement('button')
-    notReadButton.classList.add('notRead-button')
-    notReadButton.textContent='Not read'
-    button_container.appendChild(notReadButton)
-  }
+  this.title=title
+  this.author=author
+  this.pages = pages
+  this.read=read
+  this.info = function (){
     
-  const removeButton = document.createElement('button')
-  removeButton.classList.add('remove-button')
-  removeButton.textContent='Remove'
-  button_container.appendChild(removeButton)
+  return myLibrary.push(title,author, pages,read)
+  }
 }
 
 
+function addBookToLibrary(title,author,pages,read) {
+Book.prototype = Object.create(addBookToLibrary.prototype);
+const book= new Book(title,author,pages,read);  
+book.info()
+console.log('this is the library '+myLibrary)
+
+const container = book_creation;
+const newBook= document.createElement('div');
+newBook.classList.add('book')
+container.appendChild(newBook)
+
+
+const newTitle= document.createElement('div');
+newTitle.classList.add('book-title')
+newTitle.textContent= title
+newBook.appendChild(newTitle)
+
+const newAuthor= document.createElement('div');
+newAuthor.classList.add('newAuthor')
+newAuthor.textContent=  author
+newBook.appendChild(newAuthor)
+
+const newPages= document.createElement('p');
+newPages.classList.add('book-pages')
+newPages.textContent= pages+' pages'
+newBook.appendChild(newPages)
+
+const button_container = document.createElement('div');
+button_container.classList.add('book-buttons')
+newBook.appendChild(button_container)
+
+if (read===true){
+  const readButton = document.createElement('button')
+  readButton.classList.add('read-button')
+  readButton.textContent='Read'
+  button_container.appendChild(readButton)
+}
+
+else{
+  const notReadButton = document.createElement('button')
+  notReadButton.classList.add('notRead-button')
+  notReadButton.textContent='Not read'
+  button_container.appendChild(notReadButton)
+}
+  
+const removeButton = document.createElement('button')
+removeButton.classList.add('remove-button')
+removeButton.textContent='Remove'
+button_container.appendChild(removeButton)
+
+}
+
+for(let elem in myLibrary){
+console.log(elem,myLibrary[elem])
+}
 
 submit_button.addEventListener('click',(e)=>{
-title = title_form.value;
-author = author_form.value;
-pages = pages_form.value;
-
-if (title_form.value===''|| author_form.value==='' || pages_form.value===''){
-  console.log('title is empty')
+title= title_form.value
+author= author_form.value
+pages= pages_form.value
+if (read_form.checked===true){
+  read= true
 }
-
 else{
-if(read_form.checked){
-read = read_form.value;
-console.log(read)
-
+  read = false
 }
-
-else{
-  console.log('hi')
-  read='not read'
-}
-
+console.log(myLibrary)
+addBookToLibrary(title,author,pages,read);
+e.preventDefault();
 closeForm()
-}
-addBookToLibrary(title,author,pages,read)
-  e.preventDefault();
 });
+
 
 //Closes window when background is clicked
 black_popup.addEventListener('click',()=>{
@@ -151,6 +128,7 @@ black_popup.addEventListener('click',()=>{
 read_button.addEventListener('click',()=>{
   changebutton();
 })
+
 
 function changebutton(){
   read = read_form.value;

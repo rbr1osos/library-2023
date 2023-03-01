@@ -142,6 +142,7 @@ body{
     grid-area: 1/2/3/3;
     overflow: scroll;
     border-left:2px solid #e6e6e6;
+    height:87vh;
 }
 
 /* --------- search bar ---------  */
@@ -186,6 +187,7 @@ body{
     justify-content: flex-start;
     grid-row-gap:40px;
     grid-column-gap: 40px;
+    overflow: scroll;
 
 }
 
